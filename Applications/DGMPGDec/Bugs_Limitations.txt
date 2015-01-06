@@ -1,0 +1,31 @@
+DGMPGDec Known Bugs and Limitations
+-----------------------------------
+
+"No-I-frame" streams cannot be processed.
+
+Need auto horizontal scrollbar in file list dialog (no scrollbar when not needed).
+
+DGParse should show the effects of FF decimation/replication.
+
+Need to add back the autoincrement open option.
+
+Not all DGIndex funtions are available through the CLI, and not all information that
+DGIndex gathers can be accessed by a third-party application. For example, the DGIndex
+Info dialog contents (and other info) should be readable via the CLI.
+
+Decode to WAV is limited to 2GB WAV files.
+
+DGDecode macroblocks on some severe video errors for which DGIndex recovers without
+macroblocking.
+
+DGMPGDec needs to be able to load older D2V files. Backward compatibility in general
+should be a strong requirement.
+
+DVR-MS files are not supported.
+
+DGIndex should do audio playback.
+
+DGIndex should process multiple audio streams from transport streams (just as it does
+for program streams). Currently, only one audio PID can be specified at a time.
+
+Unicode paths and file names are not supported.

@@ -1,0 +1,1378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+	<title>DGAVCIndex - User Manual</title>
+	<meta HTTP-EQUIV="Content-Type" LANG="en-us" CONTENT="text/html; charset=iso-8859-1">
+	<style type="text/css">
+		body	      { font-family: verdana, arial, helvetica, sans-serif;
+				font-size: 12px;
+				color: #000000;
+				background-color: #B6C0CA;
+				text-align: left;
+				line-height: 150%;
+				width: 98.5%;
+				padding: 0px;
+				margin: 8px 0px 8px 8px; }
+
+		ul	      { padding: 0px;
+				margin: 0px 62px 0px 60px; }
+
+		ol	      { padding: 0px;
+				margin: 0px 62px 0px 60px; }
+
+		table	      { width: 99%; }
+
+		#tt	      { font-family: "Courier New", Courier, monospace;
+				font-size: 15px; }
+
+		h1	      { font-size: 26px;
+				background-color: #90A0C0;
+				text-align: center;
+				line-height: 150%;
+				margin: 12px 0px 12px 0px; }
+
+		h2	      { font-size: 22px;
+				background-color: #90A0C0;
+				line-height: 150%;
+				padding-left: 8px;
+				margin: 12px 0px 12px 0px;
+				border-style: solid;
+				border-color: #003366;
+				border-width: 2px; }
+
+		h3	      { font-size: 18px;
+				line-height: 150%;
+				padding-left: 8px;
+				margin: 12px 0px 12px 50px;
+				border-style: solid;
+				border-color: #003366;
+				border-width: 1px; }
+
+		pre	      { font-family: "Courier New", Courier, monospace;
+				font-size: 15px;
+				background-color: #D0D0C0;
+				padding: 12px;
+				margin: 10px 0px 10px 0px;
+				border-style: solid;
+				border-color: #908030;
+				border-width: 1px; }
+
+		code	      { font-family: "Courier New", Courier, monospace;
+				font-size: 15px;
+				color: #002266 ;
+				letter-spacing: 1px; }
+
+		a	      { font-size: 12px;
+				color: #0000ff;
+				text-decoration: none; }
+
+		a:visited     { color: #0000ff; }
+
+		a:hover	      { background-color: #EEE; }
+
+		#right	      { text-align: right; }
+
+		#justify      { text-align: justify; }
+
+		#center      { text-align: center; }
+
+		#quote	      { font-style: italic;
+				margin: 0px 50px 0px 50px; }
+
+		#precode      { color: #002266;
+				background-color: #B6C0CA;
+				padding: 0px 0px 0px 12px;
+				margin: 0px;
+				border-style: none; }
+
+		#section      { color: #002266;
+				width: 300px;
+				line-height: 75%;
+				text-align: right; }
+	</style>
+</head>
+<body>
+<a name="Top"></a>
+
+<h1><hr>DGAVCIndex 1.0.9<hr></h1>
+
+
+<ul>
+	<br>
+	<br>
+	<a href="#WhatIsDGAVCIndex">What is DGAVCIndex?</a><br>
+	<br>
+
+	<a href="#FileMenu">File Menu</a><br>
+	&nbsp&nbsp&nbsp<a href="#FileOpen">Open</a><br>
+	&nbsp&nbsp&nbsp<a href="#LoadProject">Load Project</a><br>
+	&nbsp&nbsp&nbsp<a href="#SaveProject">Save Project</a><br>
+	&nbsp&nbsp&nbsp<a href="#SaveDemux">Save Project and Demux Video</a><br>
+	&nbsp&nbsp&nbsp<a href="#SaveBMP">Save BMP</a><br>
+	&nbsp&nbsp&nbsp<a href="#Play">Preview, Play, Stop, Pause/Resume</a><br>
+	&nbsp&nbsp&nbsp<a href="#Exit">Exit</a><br>
+	<br>
+	<a href="#StreamMenu">Stream Menu</a><br>
+	&nbsp&nbsp&nbsp<a href="#DetectPIDsPAT">Detect PIDs: PAT/PMT</a><br>
+	&nbsp&nbsp&nbsp<a href="#DetectPIDsRAW">Detect PIDs: Raw</a><br>
+	&nbsp&nbsp&nbsp<a href="#SetPIDs">Set PIDs</a><br>
+	<br>
+	<a href="#VideoMenu">Video Menu</a><br>
+	&nbsp&nbsp&nbsp<a href="#FieldOp">Field Operation</a><br>
+	&nbsp&nbsp&nbsp<a href="#YUVtoRGB">YUV->RGB</a><br>
+	&nbsp&nbsp&nbsp<a href="#LuminanceFilter">Luminance Filter</a><br>
+	&nbsp&nbsp&nbsp<a href="#CroppingFilter">Cropping Filter</a><br>
+	&nbsp&nbsp&nbsp<a href="#CopyToClipboard">Copy Frame to Clipboard</a><br>
+	<br>
+	<a href="#AudioMenu">Audio Menu</a><br>
+	&nbsp&nbsp&nbsp<a href="#AudioDemux">Audio Demux</a><br>
+	<br>
+	<a href="#OptionsMenu">Options Menu</a><br>
+	&nbsp&nbsp&nbsp<a href="#LoopPlayback">Loop Playback</a><br>
+	&nbsp&nbsp&nbsp<a href="#PlaybackSpeed">Playback Speed</a><br>
+	&nbsp&nbsp&nbsp<a href="#ProcessPriority">Process Priority</a><br>
+	&nbsp&nbsp&nbsp<a href="#UseFullPaths">Use Full Paths</a><br>
+	&nbsp&nbsp&nbsp<a href="#AVSTemplate">AVS Template</a><br>
+	&nbsp&nbsp&nbsp<a href="#InfoLog">Enable Info Log</a><br>
+	&nbsp&nbsp&nbsp<a href="#TreatIasIDR">Treat I as IDR</a><br>
+	<br>
+	<a href="#HelpMenu">Help Menu</a><br>
+	&nbsp&nbsp&nbsp<a href="#SIMD">SIMD</a><br>
+	&nbsp&nbsp&nbsp<a href="#UserManual">DGAVCDec Quick Start Guide, DGAVCIndex User Manual, and DGAVCDecode User Manual</a><br>
+	<br>
+	<a href="#DisplayWindow">Display Window</a><br>
+	&nbsp&nbsp&nbsp<a href="#Navigation">Navigation</a><br>
+	&nbsp&nbsp&nbsp<a href="#Selection">Selection</a><br>
+	&nbsp&nbsp&nbsp<a href="#Splash">Splash Screen</a><br>
+	<br>
+	<a href="#InformationPanel">Information Panel</a><br>
+	&nbsp&nbsp&nbsp<a href="#Video">Video Section</a><br>
+	&nbsp&nbsp&nbsp<a href="#Audio">Audio Section</a><br>
+	&nbsp&nbsp&nbsp<a href="#Status">Status Section</a><br>
+	<br>
+	<a href="#AppendixA">Appendix A: DGA File Structure</a><br>
+	<a href="#AppendixB">Appendix B: Command-Line Interface</a><br>
+	<a href="#AppendixC">Appendix C: Auxiliary INI File Options</a><br>
+	<br>
+
+	<a href="#Credits">Credits</a><br>
+	<br>
+</ul>
+
+<a name="WhatIsDGAVCIndex"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">What is DGAVCIndex?</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+
+	</table>
+</h2>
+
+<ul id="justify">
+	<p>DGAVCIndex, part of the DGAVCDec package, is primarily designed to create an index of an AVC (H.264) video stream, containing the
+	location of each frame in the input stream, and some additional information about each frame.
+	This index, or project file, is used by the companion <a href="http://www.avisynth.org/" target="blank">Avisynth</a> filter
+	DGAVCDecode to provide frame-accurate serving of the video via an Avisynth script. DGAVCIndex is
+	currently limited to opening elementary (raw) and transport AVC streams (MP4 and MKV files are not yet supported).
+</p>
+	<p>You can get the latest binaries of DGAVCDec at
+	<a href="http://neuron2.net/dgavcdec/dgavcdec.html" target="blank">http://neuron2.net/dgavcdec/dgavcdec.html</a>.</p>
+	<p>This document is a reference manual for DGAVCIndex. Please refer to the accompanying documents for quick start information,
+	frequently asked questions, and guidance on actual usage of DGAVCIndex in typical scenarios.</p>
+</ul>
+
+<a name="FileMenu"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">File Menu</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+	<a name="FileOpen"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Open
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to open the source AVC file (elementary and transport streams only). Currently, although the GUI allows for selecting multiple
+files, only the first file is processed and the others are ignored.</p>
+
+		<p>Clicking on File\Open causes one of two things to happen:</p>
+		<ol>
+			<li><p>If no files have yet been selected, the Open dialog will appear.<br>
+			Click "Open" to proceed to the File List dialog.</p></li>
+
+			<li><p>If a file has already been selected, the File List dialog will open.<br></p></li>
+		</ol>
+
+		<p>Files can also be loaded by dragging-and-dropping them onto the DGAVCIndex window. This causes the File List to be opened
+		with the list containing the drag-and-dropped file.</p>
+	</ul></ul>
+
+	<a name="LoadProject"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Load Project
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to open existing DGAVCIndex (dga) project files.</p>
+
+		<p>When a project file is loaded, DGAVCIndex opens the project's source file
+		and restores the following settings from the project file:</p>
+		<ul>
+		<li>Field Operation
+		<li>YUV -> RGB Scale
+		<li>Luminance Filter
+		<li>Cropping
+		<li>Timeline selection points
+		<li>Audio demux list
+		</ul><br>
+	</ul></ul>
+
+	<a name="SaveProject"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Save Project
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to generate a DGAVCIndex project file (dga file). The project file is used by DGAVCDecode 
+		to frame-serve the video via Avisynth.</p>
+
+		<p>DGAVCIndex builds a project file containing the path to the source file, the video settings, and
+		AVC indexing information. For more information on the structure of dga files, refer to Appendix A.</p>
+
+		<p>Generation of the project file can take several minutes depending on the size of the project and
+		the speed of your computer.</p>
+	</ul></ul>
+
+
+	<a name="SaveDemux"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Save Project and Demux Video
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to generate a DGAVCIndex project file (dga file) as described in the section "Save Project" above,
+		and at the
+		same time demultiplex the video to a separate AVC elementary stream file (avc file). Elementary
+		stream files are sometimes needed for use with other applications.
+                DGAVCIndex provides this functionality as a convenient tool for the sophisticated user; it
+                is not required for frame serving via DGAVCDecode.</p>
+
+		<p>The elementary stream file will be generated in the same directory as the project (dga) file, and its name
+		will be created by concatenating the base name of the project file with ".demuxed.avc".
+                For example, if the project file is named "movie.dga", the elementary stream file will be named
+                "movie.demuxed.avc".</p>
+	</ul></ul>
+
+	<a name="SaveBMP"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Save BMP
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to save the current frame on display in the DGAVCIndex window to a Windows BMP file. When this
+		option is selected, a file dialog will open that allows you to specify the desired name and location for the
+		BMP file.</p>
+	</ul></ul>
+
+	<a name="Play"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Preview, Play, Stop, Pause/Resume
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use these options to control video playback in the display window. Keyboard hotkeys are given
+		in parentheses.</p>
+		<ul>
+			<li><b>Preview (F5)</b> - Plays from the beginning to the end of the timeline.</li>
+			<li><b>Play (F6)</b> - Plays from the current position on the timeline.</li>
+			<li><b>Stop (ESC)</b> - Stops a running Play or Preview.</li>
+			<li><b>Pause/Resume (SPACE)</b> - Pauses/resumes a running Play or Preview.</li>
+		</ul>
+		<p>The video playback speed is controlled by the
+		playback speed control options available via the <a href=#PlaybackSpeed>Options/Playback Speed</a> menu.</p>
+		<p>Play and Preview automatically pop up the <a href="#InformationPanel">Information Panel</a>.</p>
+	</ul></ul>
+
+	<a name="Exit"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Exit
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to close the source file and terminate DGAVCIndex.</p>
+	</ul></ul>
+
+<a name="StreamMenu"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Stream Menu</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+	<a name="DetectPIDsPAT"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Detect PIDs: PAT/PMT
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>DGAVCIndex can open transport streams. Transport streams can contain multiple programs, each of which
+		contains audio and video streams. The Stream menu allows the user to list the programs and to select the
+		desired program to be decoded. The stream menu is disabled if the input stream is not a transport stream.
+		Transport streams periodically send data tables called the PAT/PMT tables that specify the programs and
+		tags (PIDs) for the associated audio and video streams. By setting the PID for the desired video
+		stream, you thereby select the desired program to decode. Note that only the video and PCR PIDs can
+                be set in this menu. Use the "Audio/Audio Demux" option to set audio PIDs.
+
+		<p>Use the "Detect PIDs: PAT/PMT" option to list the programs and their associated streams, and to select the
+		desired video stream to be decoded. DGAVCIndex will parse the input
+                file for the PAT/PMT tables and, if found,
+		will display the programs and their PIDs in a list box. If PAT/PMT tables cannot be found, an error message
+		will be shown instead, in which case the list box should be closed
+                and the "Detect PIDs: Raw" option used instead.</p>
+
+		<p>To select the desired video stream, highlight it by selecting it
+                with a mouse click. Then click on the "Set Video"
+		button. To select the desired PCR stream, highlight it by selecting it with
+                a mouse click. Then click on the "Set PCR"
+		button. When you have selected your PIDs, click on the "Done" button
+                to close the list box. The video should now
+		be displayed in the DGAVCIndex window.</p>
+
+                Note that unless you use the Log Timestamps function, the PCR PID is
+                not used and can be ignored.
+
+		<p>The PIDs are stored in the DGAVCIndex.ini file and so will be retained across DGAVCIndex sessions.</p>
+
+		<p>Note that selecting an audio stream as video will produce
+                undefined operation and may crash
+		DGAVCIndex. For that reason, the video PID comes up by default as 0x02,
+                which is a reserved value. However, because the
+		DGAVCIndex.ini file retains PIDs from a previous session, you may run into this.
+                If you get strange behavior or crashing,
+		then manually set the video PID to 0x02 using the "Set PIDs" option before
+                loading your input file,
+		and then detect and set your video PID normally.</p>
+	</ul></ul>
+
+	<a name="DetectPIDsRAW"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Detect PIDs: Raw
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Rarely, a transport stream may lack PAT/PMT tables. In such cases, the PIDs of the audio
+                and video streams
+		can be displayed and selected using the "Detect PIDs: Raw" option. Because raw PID
+                detection does not show which
+		audio and video streams go together, some trial and error may be required to find which audio and video PIDs
+		belong together (commonly encountered pairs of associated video/audio PIDs are 11/14, 21/24, and 31/34).
+		For that reason "Detect PIDs: PAT/PMT" should always be tried first.</p>
+
+		<p>The operation of the "Detect PIDs: Raw" list box is the same as described above for the
+		"Detect PIDs: PAT/PMT" list box.</p>
+	</ul></ul>
+
+	<a name="SetPIDs"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Set PIDs
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to manually specify the video and PCR
+                PIDs using hexadecimal notation, or to query the selected PIDs.
+		If you use this dialog to specify your PIDs,
+		DGAVCIndex will not detect PIDs and will simply use the specified PIDs
+                to select the video and PCR streams.  Note that only the video and PCR PIDs can
+                be set in this menu. Use the "Audio/Audio Demux" option to set audio PIDs.</p>
+
+		<p>Note that selecting an audio stream as video will produce
+                undefined operation and may crash
+		DGAVCIndex. For that reason, the video PID comes up by default as 0x02,
+                which is a reserved value. However, because the
+		DGAVCIndex.ini file retains PIDs from a previous session, you may run into this.
+                If you get strange behavior or crashing,
+		then manually set the video PID to 0x02 using the "Set PIDs" option before
+                loading your input file,
+		and then detect and set your video PID normally.</p>
+	</ul></ul>
+
+<a name="VideoMenu"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Video Menu</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+	<a name="FieldOp"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Field Operation
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>AVC video provides a syntax element (picture timing SEIs) that allows a single field of any frame to be repeated
+		automatically during display ("pulled down"). The extra fields do not occupy space in the AVC stream but are simply
+		created by copying when the stream is decoded and displayed. This facility is most often used to display
+		film rate clips (23.976 fps) at the NTSC rate (29.97 fps), a process called 3:2 pulldown. In practice,
+		however, pulldown in various different patterns is commonly encountered. It can be used, for example, to
+		display 25 fps PAL at the NTSC rate. You can learn about telecining and pulldown at
+		<a href="http://www.dvdfile.com/news/special_report/production_a_z/3_2_pulldown.htm" target="blank">this web site</a>.</p>
+
+		Understanding the theory and practice required to properly set this option for a given application
+		is nontrivial. Here we can only define the operations and give some general guidance. There is ample
+		additional material available in existing guides.</p>
+
+		<p>The Field Operation setting allows the user to specify how the pulldown flags are to be handled. Note 
+		that this setting affects only the video served via DGAVCDecode. In DGAVCIndex, the video is always shown in
+		the Ignore Pulldown Flags mode.</p>
+		<ul>
+			<li><b>Honor Pulldown Flags</b> - The pulldown flags (if any) are obeyed and the fields are
+		 	repeated. This means that
+			the frame-served video will appear exactly as it is intended to appear on the final display device.
+			Therefore, if you have a 3:2 pulled-down clip, you'll get the standard repeating pattern of 3 progressive frames
+			followed by 2 interlaced frames. If you have PAL, you'll just get the encoded pictures with no
+			repeated fields (because PAL has no pulldown flags to honor).
+			The frame rate will always be the same as the display frame rate of the source.</li>
+			<li><b>Ignore Pulldown Flags</b> - The pulldown flags are ignored. This allows one to obtain the
+			raw encoded AVC pictures, with no repeated fields. However, because repeated fields intended for display are
+			ignored and not displayed, the resulting frame rate may differ from the source frame rate. It may even
+			vary throughout the clip, due to irregular patterns of pulldown flags. If the pulldown is irregular,
+			use of this option will cause the audio-video sync to change at different parts of the clip, and most
+			likely sync will not be acceptable. This option is mostly intended for power users, who would use it as
+			a diagnostic aid for inspecting the encoded AVC pictures. Although this option ignores the flags, they
+			are still stored in the DGA file although DGAVCDecode will ignore them.</li>
+			<li><b>Force Film</b> - This option is intended for the special case of film content encoded at
+			23.976 fps but pulled down for display at 29.97 fps, i.e., 3:2 pulldown. This option will restore the
+			23.976 fps film rate while keeping audio and video in sync throughout the clip. This option works by ignoring
+			pulldown flags <i>and</i> adjusting the frame rate back to the film rate.
+			Do not use this option on non-3:2 pulled-down material, and, therefore, never use it on PAL.
+			Currently, this option requires 3:2 pulldown throughout the stream, and so it cannot be used on
+			hybrid film/video. For hybrid streams, use Honor Pulldown Flags and post-process as required.
+			</li>
+		</ul>
+
+		<p>The Field Operation is perhaps the most important option to understand when using DGAVCIndex.
+		Most users should first preview the
+		project and inspect the Information Panel. If the clip is 29.976fps, and the Field Repeats box in the
+		Information Panel indicates field repeats consistent with 3:2 pulldown,
+		then it is likely that the clip can be treated as 3:2 pulldown material, and so the <b>Force Film</b> option
+		should be selected for generation of the DGA file.<p>
+
+		<p>Otherwise, then you should leave this option set to <b>Honor Pulldown Flags</b> for generation of the DGA file. If the result is combed (because the source is interlaced, hybrid interlaced/3:2, field blended, etc.), you may want to apply a deinterlacer or inverse telecine (IVTC) filter in your Avisynth script.</p>
+
+		<p>Almost invariably, if you know the source is not all 3:2 pulled-down NTSC, you will want to select <b>Honor Pulldown Flags</b> and then post-process as required. Keep in mind that if there are no pulldown flags, there is nothing to honor, so this option just delivers the encoded frames.</p> 
+
+		<p>The <b>Ignore Pulldown Flags</b> option should be necessary only for advanced users who want to see just the exact coded pictures in the AVC stream. Currently this is just Force Film but without the frame rate modification. In a future version, Force Film will operate on hybrid material and will decimate frames as required in video sections to maintain the film rate. At that time the distinction between Force Film and Ignore Pulldown Flags will be more meaningful.</p>
+
+	</ul></ul>
+
+	<a name="YUVtoRGB"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">YUV->RGB
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>For display in the DGAVCIndex window, the video is always converted to RGB. This option specifies
+		how the colorspace conversion to RGB is to be performed.</p>
+		<ul>
+		  <li><b>PC scale</b> - Map output RGB to full range: YUV [16, 235(Y)/240(UV)] -> RGB [0, 255]</li>
+		  <li><b>TV scale</b> - Map output RGB to clipped range: YUV [16, 235(Y)/240(UV)] -> RGB [16, 235]</li>
+		</ul>
+
+		<p>This option affects only conversion to RGB for display in DGAVCIndex. It does not affect the
+		the video sent to DGAVCDecode. For the served video, you can convert to RGB in your Avisynth
+		script if needed.</p>
+	</ul></ul>
+<p></p>
+</ul></ul>
+
+	<a name="LuminanceFilter"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Luminance Filter
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to perform luminance adjustments.</p>
+
+		<p>Use the checkbox in the upper left corner to Enable or Disable this filter.
+		Position the Gamma and Offset controls until desired results are achieved. DGAVCIndex stores the
+		luminance adjustment settings in the DGA file and DGAVCDecode reads them and
+		applies the same luminance adjustment to the served video, so that what you see in the
+		DGAVCIndex window is what you get in the served video.</p>
+
+		<p>Gamma performs a non-linear adjustment, while offset just adds or subtracts luminance for all
+		the pixels. It is
+		beyond the scope of this manual to describe the concept of gamma. Google is your friend.</p>
+	</ul></ul>
+
+	<a name="CroppingFilter"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Cropping Filter
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to crop your video.</p>
+
+		<p>Use the checkbox in the upper left corner to Enable or Disable this filter.
+		Position the Left, Right, Top, and Bottom controls until desired results are achieved.
+		DGAVCIndex stores the
+		cropping settings in the DGA file and DGAVCDecode reads them and
+		applies the same cropping to the served video, so that what you see in the
+		DGAVCIndex window is what you get in the served video.</p>
+	</ul></ul>
+
+	<a name="CopyToClipboard"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Copy Frame to Clipboard
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Use this option to copy the frame on display to the clipboard. It may then be pasted into suitable graphics applications.</p>
+	</ul></ul>
+
+<a name="AudioMenu"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Audio Menu</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+	<a name="AudioDemux"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Audio Demux
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>DGAVCIndex can open transport streams. Transport streams can contain multiple programs, each of which
+		contains audio and video streams. The Audio Demux menu allows the user to
+                select audio streams to be demultiplexed when a Save Project operation is performed. The
+                following audio types are currently supported: MPEG audio, AAC ADTS audio, AAC LATM/LOAS,
+                AC3 audio, DTS audio, and LPCM audio. Additional formats will be added as test streams are received.</p>
+		
+		<p>The "Available audio streams" listbox lists the audio streams that were detected.
+                To select an audio stream for demultiplexing, highlight it by selecting it
+                with a mouse click. Then click on the "Set"
+		button. The stream's PID will be added to the list in the "Audio streams to demux"
+                listbox. To remove a stream from the list, highlight it and then click on the "Clear" button.
+                Use the "Set All" and "Clear All" buttons to add or remove all the available audio streams,
+                respectively. When you have selected your audio PIDs, click on the "Done" button
+                to close the menu. Now subsequently, when you perform a Save Project operation,
+                the selected audio streams will be demultiplexed. Also, if you do a Preview or Play
+                operation, the detected audio streams will be listed on the Info dialog.</p>
+
+                <p>Demuxed audio files will be named after the project name and additional
+                parameters of the audio format. For example: "bbc.hd PID 90f 2_0ch 384Kbps.ac3".</p>
+
+		<p>When LPCM is demuxed from a transport stream, usually an M2TS (Blu-Ray) stream, the raw PCM is stored in the output file.
+                You can convert this to a standard wave file using the popular SOX audio processor tool, which you can get here:</p>
+
+                <a href=http://sourceforge.net/projects/sox/>http://sourceforge.net/projects/sox/</a>
+
+                <p>A typical command line would be as follows (although you need to check your audio parameters in the Info dialog to choose the correct SOX options):</p>
+
+                <tt>sox -B -r48000 -t .raw -c 6 -2 -s "Blu-ray PCM PID 1101 DELAY 0ms.pcm" "out.wav"</tt>
+
+                <p>A future version of DGAVCIndex may integrate WAV packaging functionality to eliminate the need for SOX.</p>
+
+                <p>It is possible that audio streams are declared in the PAT/PMT tables but are not
+                actually present in the source file, in which case demultiplexing them will fail to produce
+                demultiplexed files. You can test for the actual presence of declared streams by doing a Preview operation.
+                If the streams are actually present they will be listed on the Info dialog.
+
+		<p>The audio demultiplexing settings are not stored in the DGAVCIndex.ini file.</p>
+	</ul></ul>
+
+
+<a name="OptionsMenu"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Options Menu</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+
+	</table>
+</h2>
+
+	<a name="LoopPlayback"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Loop Playback
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>When this option is selected and playback during a Preview or Play operation reaches the end of the timeline, playback will
+		automatically start again at the beginning of the timeline.</p>
+	</ul></ul>
+
+	<a name="PlaybackSpeed"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Playback Speed
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Specify the playback speed for play and preview operations.</p>
+		<ul>
+		  <li><b>Single Step</b> - Step forward one frame at a time (see description below).</li>
+		  <li><b>Super Slow</b> - 5 frames/sec.</li>
+		  <li><b>Slow</b> - 10 frames/sec.</li>
+		  <li><b>Normal</b> - The frame rate of the stream.</li>
+		  <li><b>Fast</b>  - Double the frame rate of the stream (two times Normal).</li>
+		  <li><b>Maximum</b> - The fastest possible rate that your computer can perform.</li>
+		</ul>
+		<p>The single step mode is controlled by the right arrow button (>) on the timeline. Note
+		that during a single-stepping
+		operation, you cannot navigate on the timeline. To single-step from a new location, first
+		exit the play operation, then reposition on the timeline in the normal way, and restart the
+		play operation. Finally, single-stepping does not give you per-frame granularity for cuts
+		and timeline positioning; it just allows you to pace the playback so that individual frames
+		can be examined.</p>
+	</ul></ul>
+
+	<a name="ProcessPriority"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Process Priority
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Specify what CPU usage priority Windows will assign to DGAVCIndex.</p>
+		<ul>
+		  <li><b>High</b></li>
+		  <li><b>Normal</b></li>
+		  <li><b>Low</b></li>
+		</ul>
+
+		<p>Use this option if you are running multiple applications at once, and want to prioritize (or de-prioritize)
+		DGAVCIndex for CPU usage.</p>
+	</ul></ul>
+
+
+<a name="AVSTemplate"></a><br>
+<h3>
+	<table><tr>
+		<td width="75%">AVS Template</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+
+	</table>
+</h3>
+
+	<ul><ul>
+		<p>DGAVCIndex can automatically generate an Avisynth script for serving your project. It requires you to specify a <i>template file</i>, such as the following one:</p>
+<p><tt>
+&nbsp;&nbsp;loadplugin("...\DGAVCDecode.dll")<br>
+&nbsp;&nbsp;loadplugin("...\Decomb.dll")<br>
+&nbsp;&nbsp;avcsource("__vid__")<br>
+&nbsp;&nbsp;fielddeinterlace()
+</tt><p>
+This is any normal AVS script, except that the DGA file name is replaced with __vid__ (that's <i>two</i> underscores before "vid" and two after). When DGAVCIndex creates the AVS script,
+it replaces __vid__ with the correct DGA file name.</p>
+<p>To select and enable a template, use the Options/AVS Template pulldown menu item to set your
+template file as the active template file. 
+After performing a Save Project operation, DGAVCIndex uses this file as a template and inserts the right
+file name whenever it sees __vid__.
+<p>You may also use the __aud__ specifier to generate the audio file name. Note that if you are generating more than one audio file,
+this specifier will refer to the first audio file that is opened. Therefore, to be sure to get the desired audio file, process just one audio stream.
+<p>You may also use the __del__ specifier to generate the delay value for use in DelayAudio(__del__).
+<p>DGAVCIndex creates the AVS script file only if it does not already exist. The script file is created in the same
+directory as the DGA file.</p>
+<p>The AVS Template dialog box displays the current active template file. If no file is shown,
+then a template is not being used. The dialog box provides three possible actions:</p>
+<b>Don't Use Template</b>: Choose this action if you do not want DGAVCIndex to automatically
+create AVS scripts.
+<br><br>
+<b>Change Template File</b>: Choose this action to select your template file and make it the
+active template for AVS generation. This action pops up a file dialog which you use to
+select your template file.
+<br><br>
+<b>Keep Current Template</b> Choose this action if you want to keep the current template file.</p>
+<p>This option setting is stored in the INI file and so is retained
+across DGAVCIndex invocations. When an INI file is not present, the AVS Template path
+defaults to a file named "template.avs" and located in the same directory as that of the executed DGAVCIndex.exe.</p>
+	</ul></ul>
+
+	<a name="UseFullPaths"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Use Full Paths
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>DGA files and AVS files created via an AVS template contain
+references to files. This option controls whether they should be
+stored as relative paths or full paths. When this option is disabled, the DGA file
+and generated AVS scripts will suppress the full path information and provide just
+the relative paths; everything is relative to the location of the DGA file.</p>
+<p>The option to continue using full paths was retained to provide backward
+compatibility to third-party applications.</p>
+<p>This option setting is stored in the INI file and so is retained
+across DGAVCIndex invocations.</p>
+	</ul></ul>
+
+	<a name="InfoLog"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Enable Info Log
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>When the <b>Enable Info Log</b> option is checked and the Information Panel is closed,
+		either manually or automatically by DGAVCIndex, a log file is created that
+		contains the information displayed in the Information Panel at the time of closure.
+                The file name used is that of
+		the input file with the extension changed to "log". The log file is created in the same
+                directory as the
+		input file. If this directory is not writable, then the log file is not created.
+
+                <p>This option setting is stored in the INI file and so is retained
+                across DGAVCIndex invocations.</p>
+<p></p>
+</ul></ul>
+
+	<a name="TreatIasIDR"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">Treat I as IDR
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Some streams (such as those generated by Hauppage's HD PVR with default configuration)
+		do not contain IDR frames, but instead contain seekable I frames. Normally, seekable I frames
+		are signalled by recovery point SEI messages, but this is not required by the AVC standard.
+		For streams with no IDRs but having seekable I frames not signalled by SEIs, you can enable the
+		<b>Treat I as IDR</b> option to allow the streams to be properly handled by DGAVCDec.</p>
+		<p>This option should not be enabled unless you know that the stream requires
+		it for proper handling. It is known to be required currently for the Hauppage streams
+		(unless a Graphedit hack is done to enable IDR generation).</p>
+                <p>This option setting is stored in the INI file and so is retained
+                across DGAVCIndex invocations.</p>
+<p></p>
+</ul></ul>
+
+<a name="HelpMenu"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Help Menu</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+
+	</table>
+</h2>
+
+	<a name="SIMD"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">SIMD
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>This is a read-only indicator displaying information about which SIMD optimizations were detected as available for this CPU.</p>
+	</ul></ul>
+
+	<a name="UserManual"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">DGAVCDec Quick Start Guide, DGAVCIndex User Manual, and DGAVCDecode User Manual
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>These options open the respective documents in your browser. To work, the files
+                "AVCQuickStart.html", "DGAVCIndexManual.html",
+		"DGAVCDecodeManual.html" that
+		are included in the DGAVCDec package must be in the same directory as
+                the "DGAVCIndex.exe" file. Do not rename
+		these files.</p>
+	</ul></ul>
+
+
+<a name="DisplayWindow"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Display Window</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+
+	</table>
+</h2>
+
+	<br>
+	<a name="Navigation"></a>
+	<h3>
+		<table><tr>
+			<td width="75%">Navigation
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Preview the video file and select the start/end points for the project.</p>
+
+		<p>Use the <b>navigation slider</b>, and these two buttons for navigation:</p>
+		  < - Seek to previous GOP (IDR frame or recovery point frame).<br>
+		  > - Seek to next GOP frame.<br>
+		<br>
+
+		<p>Currently, the display window displays only the first frame of a GOP in navigation mode
+		(because they are possible selection points for cutting the video).
+		This makes the video appear to jump when stepping, instead of moving smoothly. Of course, during play, preview, or
+		frameserving, all frames are shown.</p>
+
+		<p>The mouse scrollwheel is supported. When you are not in play/preview mode, the scrollwheel will act as do the
+		right and left arrow keys (< and >), i.e., it will effect GOP stepping. When you are in play/preview mode with
+                single stepping enabled, the
+                scrollwheel will act as does the right arrow key (>), i.e., it will effect frame stepping.</p>
+
+		<p>The video may in some cases appear stretched/squashed in the display window because DGAVCIndex displays the video as is it
+		stored in the AVC stream, which may not be the same as the final display size. For an explanation, read Doom9's article on
+		<a href="http://www.doom9.org/aspectratios.htm" target="blank">Aspect Ratios</a>.</p>
+
+		<p>When a video is displayed that has a frame size that will not fit on a 1024x768 desktop, the video is
+		reduced in size by a factor of two. Thus, high-definition (HD) videos can be previewed without requiring scrolling.</p>
+	</ul></ul>
+
+	<br>
+	<a name="Selection"></a>
+	<h3>
+		<table><tr>
+			<td width="75%">Selection
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		Starting and ending points for the project may also be optionally specified.<br>
+		<br>
+		  [ button or HOME key - Mark selection start point.<br>
+		  ] button or END key - Mark selection end point.<br>
+		<p>When doing Save Project or Preview, the operation will be applied
+		only to the portion of the timeline between the selected start and end points.</p>
+
+		<p>By default, the entire timeline is automatically selected.  Selection start/end point can be changed, but
+		only one set of start/end point may be specified for a project (i.e.: multiple start/end points are not yet
+		supported).</p>
+	</ul></ul>
+	<br>
+
+	<a name="Splash"></a>
+	<h3>
+		<table><tr>
+			<td width="75%">Splash Screen
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>When no input file is loaded DGAVCIndex can display a splash screen. To enable this feature,
+		place an appropriately sized windows BMP file called "dgavcindex.bmp"
+		in the same directory as DGAVCIndex.exe. Several sample BMPs are available from
+		the DGAVCDec home page.</p>
+	</ul></ul>
+
+
+<a name="InformationPanel"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Information Panel</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+
+	</table>
+</h2>
+	<ul>
+		<p>The Information Panel displays important statistics about the loaded video stream.
+		Information displayed in this panel is often essential for correctly processing DGAVCIndex projects,
+		especially when frameserving into third-party applications. The Information Panel is displayed when
+		a project is saved or when using the Play/Preview commands. Note that when doing a Play/Preview
+		operation, the information will apply only to the section actually played or previewed.</p>
+
+		<p>When the <b>Enable Info Log</b> option is checked and the
+                Information Panel is closed, either manually or automatically by DGAVCIndex, a log file is
+	 	created that
+		contains the information displayed in the Information Panel at the time of closure. The file name used is
+		that of
+		the input file with the extension changed to "log". The log file is created in the
+		same directory as the 
+		input file. If this directory is not writable, then the log file is not created.</p>
+	</ul>
+	<p>
+	<a name="Video"></a>
+	<h3>
+		<table><tr>
+			<td width="75%">Video Section
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<br>
+		  <b>Stream Type</b> - Displays the stream type. Currently, DGAVCIndex is limited to AVC
+		  elementary streams.<br><br>
+		  <b>Profile</b> - This field displays the AVC profile used to encode the currently loaded video.<br><br>
+		  <b>Level</b> - This field displays the AVC level used to encode the currently loaded video.<br><br>
+		  <b>Frame Size</b> - Displays the encoded size of the frame in the currently displayed video. Note that this
+		  is the encoded frame size, which differs from the display frame size (see below).<br><br>
+		  <b>SAR</b> - Displays the sample aspect ratio specified in the AVC
+		  stream.<br><br>
+		  <b>Display Size</b> - Displays the display frame size that results from applying the SAR to the encoded frame size.
+		  Here's how it works: Suppose you have a 1440x1080 video with a reported SAR of
+                  4:3. You convert 4:3 to the fraction 4/3 and multiply that by 1440, giving a display width of 1920. Thus,
+                  the SAR field will show 4:3 and the Display Size field will show 1920x1080 as the display size.<br><br>
+		  <b>Frame Rate</b> - Displays the encoded playback frame rate of the currently loaded video.<br><br>
+		  <b>Colorimetry</b> - Displays the colorimetry scheme used by the stream. Note that if the stream
+		  does not declare the
+		  colorimetry, then ITU-R BT.709* is reported for HD video, and ITU-R BT.470-2* is reported for SD video.
+		  The * character indicates that
+		  the stream did not declare the colorimetry. The actual value read from the stream is
+		  shown in brackets.<br><br>
+		  <b>Frame Struct</b> - Displays the encoded structure of the current frame: <i><b>Frame</b></i>,
+		  <i><b>Fields (TFF)</b></i>, <i><b>Fields (BFF)</b></i>, or <i><b>MBAFF</b></i>.<br><br>
+		  <b>Frame Type</b> - Displays the type of the current frame: Intra (I), Predicted (P), or
+		  Bidirectional Predicted (B).<br><br>
+		  <b>Coded #</b> - Displays the total number of coded AVC frames encountered
+		  during the Save Project, Play,
+		  or Preview operation. If you Preview the stream from beginning to end, the coded
+		  count will be equal to the number of frames that libavcodec was able to decode,
+		  and it should match the frame count that DGAVCDecode reports via the Avisynth
+		  script. However, when you Save Project, the coded count may be a few frames
+		  higher, because all encoded frames are indexed, even if they are not decodable
+		  (frames are not decoded and displayed during a Save Project operation). <br><br>
+		  <b>Playback #</b> - Displays the total number of AVC frames displayed during the Save Project, Play,
+		  or Preview operation. This number can be greater than the Coded # if pulldown is present<br><br>
+		  <b>Frame Rpts</b> - Displays the total number of extra frames displayed due to frame repeat flags
+                  during the Save Project, Play,
+		  or Preview operation.<br><br>
+		  <b>Field Rpts</b> - Displays the total number of extra fields displayed due to field repeat flags
+		  encountered during the Save Project, Play,
+		  or Preview operation.<br><br>
+		  <b>Bitrate</b> - Displays a windowed video bitrate averaged over the last 30 frames.<br><br>
+		  <b>Bitrate (Avg)</b> - Displays the video bitrate averaged over all the displayed frames.<br><br>
+		  <b>Bitrate (Max)</b> - Displays the maximum video bitrate encountered over all the displayed frames.<br><br>
+	</ul></ul>
+
+	<br>
+	<a name="Audio"></a>
+	<h3>
+		<table><tr>
+			<td width="75%">Audio Section
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<br>
+		  Displays the audio streams that were detected in the source stream.<br><br>
+	</ul></ul>
+
+	<br>
+	<a name="Status"></a>
+	<h3>
+		<table><tr>
+			<td width="75%">Status Section
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<br>
+		  <b>Elapsed</b> - Displays the time elapsed since starting the current Save Project, Play, or Preview operation.<br><br>
+		  <b>Remain</b> - Displays the time remaining for completion of the current Save Project, Play, or Preview
+		  operation.<br><br>
+		  <b>FPS</b> - Displays the frame rate achieved by DGAVCIndex's play/preview process. Note that this may not
+		  match the video frame rate of the stream, because the user can configure the playback speed,
+		  and because DGAVCIndex may not be able to decode the stream in real time.<br><br>
+		  <b>Info</b> - Displays video error information.<br><br>
+	</ul></ul>
+
+<a name="AppendixA"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">APPENDIX A: DGA File Structure
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+<br>
+	<ul id="justify">
+	<p>This Appendix documents the syntax and semantics
+	of the DGA file format. Normal users need not concern themselves with this information, as it is intended for developers and
+	power users.</p>
+
+	<p>There are three sections to all DGA files: 1) the header section, 2) the settings section, and 3) the data section. These
+	sections are described below.</p>
+	</ul>
+
+	<h3>
+		<table><tr>
+			<td width="75%">DGA Format - Header Section
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>Following is a typical header section:</p>
+
+		<code>
+			DGAVCIndexFile7<br>
+			<p>
+			Y:\don.264<br>
+			Y:\DGAVCDec\DGAVCIndex\Release\
+		</code>
+	</ul></ul>
+	<ul><ul id="justify">
+
+		<p>The first line always begins with the string "DGAVCIndexFile"
+		immediately followed by a DGA
+		version number. This number is checked by DGAVCDecode and must match the version expected.
+		This mechanism thus
+		enforces the requirement that DGAVCIndex and DGAVCDecode must be used in matched pairs.
+		If DGAVCDecode rejects your
+		DGA file as "obsolete", be sure that you are using the correct version of DGAVCDecode. Sometimes one forgets
+		that one has an older version in the Avisynth plugins folder, or one forgets to upgrade DGAVCDecode
+		when upgrading
+		DGAVCIndex.</p>
+
+		<p>The second line is blank and the third line specifies the input video file.
+		The fourth line specifies the path to the libavcodec.dll that DGAVCDecode will use
+		to decode the AVC video.
+		The header section must then terminate with a blank line.</p>
+
+		<p>The source file reference consists of either a relative path and filename, if the <b>Use Full Paths</b> option is disabled; or the full absolute path of the referenced file, if the <b>Use Full Paths</b> option is enabled. If the <b>Use Full Paths option</b> is enabled and the referenced file is
+		moved after creation of the DGA file, you must either edit the path to be correct, or you must regenerate
+		your DGA file.</p>
+	</ul></ul>
+
+	<br>
+	<h3>
+		<table><tr>
+			<td width="75%">DGA Format - Settings Section
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>The settings section consists of one-line specifiers. The following specifiers are defined:</p>
+		<code>
+			STREAM 1<br>
+		</code>
+		<p>The number on this line is interpreted as follows: 0 = elementary stream, 1 = transport stream.</p>
+		<code>
+			PKTSIZ 188<br>
+		</code>
+                <p>This specifier appears only if the input file is a transport stream. The number on this line
+                specifies the transport packet size in bytes.</p>
+		<code>
+			VPID 68<br>
+		</code>
+                <p>This specifier appears only if the input file is a transport stream. The number on this line
+                specifies the video PID that was selected in DGAVCIndex.</p>
+		<code>
+			FO 2<br>
+		</code>
+		<p>The number on this line is interpreted as follows: 0 = Honor Pulldown Flags, 1 = Force Film, and
+		2 = Ignore Pulldown Flags.</p>
+		<code>
+			YUVRGB 1<br>
+		</code>
+                <p>The number on this line is interpreted as follows: 0 = TV scale, 1 = PC scale.</p>
+		<code>
+			LUMFILT 0 0<br>
+		</code>
+                <p>The first number on this line is the luminance filter gamma. The second number is the luminance filter offset.</p>
+		<code>
+			CLIP 0 0 0 0<br>
+		</code>
+                <p>The first number on this line is the cropping left value. The second number is the cropping right value.
+		 The third number is the cropping top value. The fourth number is the cropping bottom value.</p>
+		<code>
+			RANGE 0 0<br>
+		</code>
+                <p>The first number on this line is the offset in the source file corresponding to the left selection range value.
+		The second number is the offset in the source file corresponding to the right selection range value.</p>
+		<code>
+			AUDIO 80,c0<br>
+		</code>
+                <p>The string on this line is the comma-separated list of audio id's to demux.</p>
+	</ul></ul>
+	</ul></ul>
+	<br>
+
+	<br>
+	<h3>
+		<table><tr>
+			<td width="75%">DGA Format - Data Section
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<p>The data section consists of one-line specifiers identified with an upper-case keyword. For example:</p>
+
+		<code>
+LPOC 0<br>
+SPS 6<br> 
+PPS 65 0<br>
+IDR 104 <br>
+FRM 7 0<br>
+PIC 3 <br>
+FRM 5 -2<br>
+PIC 5 <br>
+FRM 5 -1<br>
+PIC 5 <br>
+FRM 5 3<br>
+PIC 6 <br>
+FRM 6 1<br>
+PIC 3 <br>
+FRM 6 2<br>
+PIC 3 <br>
+FRM 5 6<br>
+PIC 4 <br>
+FRM 6 4<br>
+PIC 6 <br>
+FRM 6 5<br>
+PIC 6 <br>
+FRM 5 9<br>
+PIC 5 <br>
+FRM 6 7<br>
+PIC 4 <br>
+FRM 6 8<br>
+<br>
+SIZ 1920 x 1080<br> 
+FPS 60000 / 2002<br>
+		</code>
+	</ul></ul>
+	<ul><ul id="justify">
+	
+		<p>The data section of a DGA file contains the indexing of the AVC video stream. The syntax for
+		each keyword line is as follows:</p>
+<ul>
+<li>LPOC n: The POC of the first frame decodable by libavcodec. This is used internally to align
+libavcodec's decoding with DGAVCDec's NALU parsing.
+<li>SPS n: A new Sequence Parameter Set (SPS) is located at offset n (decimal) in the source file. Note that repeated identical SPS's are not new and so are not indexed.
+<li>PPS n i: A new Picture Parameter Set (PPS) with ID i (decimal) is located at offset n (decimal) in the source file.  Note that repeated identical PPS's are not new and so are not indexed.
+<li>IDR n: A Instantaneous Decoder Refresh (IDR) frame is located at offset n (decimal) in the source file.
+<li>FRM x y: A frame of type x (refer to slice types in the AVC specification) with POC/2 y is present in the source file.
+<li>RPS x: A Recovery Point SEI (RPS) is located at offset n (decimal) in the source file.
+<li>PIC x: A Picture Timing SEI with picture structure x is present in the source file (refer to picture structure types in the AVC specification).
+<li>SIZ W x H: The video frames have a width of W and a height of H.
+<li>FPS N / D: The frame rate of the video is N/D.
+<li>CODED n: The number of coded frames in the project.
+<li>PLAYBACK n: The number of playback frames in the project.
+</ul>
+	</ul></ul>
+<br>
+
+<a name="AppendixB"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Command-Line Interface</td>
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+	<br>
+	<h3>
+		<table><tr>
+			<td width="75%">Parameters
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul>
+		<p>DGAVCIndex can also be executed via a command-line interface.
+                This feature is intended for use in automated
+		scripts and batch files, and for use by third-party applications.
+                Following is the syntax and semantics for the
+		command line interface. Note that options not included are controlled
+                by DGAVCIndex defaults and the DGAVCIndex
+		INI file.</p>
+
+		<ul>
+			<table border="1px" cellspacing="2px" cellpadding="10%">
+			<caption><i>Table 1: Command-Line parameters supported by DGAVCIndex</i></caption>
+				<tr>
+					<th align="center">Parameter
+					<th align="center">Command-Line Flag
+					<th align="center">Definition/Comments
+				<tr>
+					<td>Input File
+					<td id="tt">-i filename
+					<td>Specify input file.<br>
+					If the specified file cannot be found, it is ignored.<br>
+                                        The filename should be double quoted if it contains spaces.
+				<tr>
+					<td>Video PID
+					<td id="tt">-v videoPID
+					<td>Transport stream video PID, hex notation. (e.g., -v 11)
+				<tr>
+					<td>PCR PID
+					<td id="tt">-p pcrPID
+					<td>Transport stream PCR PID, hex notation. (e.g., -p 11)
+				<tr>
+					<td>Field Operation
+					<td id="tt">-f operation
+					<td>0=Honor Pulldown Flags, 1=Force Film, 2=Ignore Pulldown Flags
+				<tr>
+					<td>YUV->RGB
+					<td id="tt">-y method
+					<td>1=PC Scale, 2=TV Scale
+				<tr>
+					<td>Output File
+					<td id="tt">-o filename
+					<td>Name of output index file, including the .dga extension.<br>
+                                        The filename should be double quoted if it contains spaces.
+				<tr>
+					<td>Output File with Video Demux
+					<td id="tt">-od filename
+					<td>Name of output index file, including the .dga extension.<br>
+                                        The filename should be double quoted if it contains spaces.<br>
+					Same as -o but the video elementary stream is demuxed.
+				<tr>
+					<td>Demux Audio
+					<td id="tt">-a
+					<td>Demux all detected audio streams.
+				<tr>
+					<td>Exit
+					<td id="tt">-e
+					<td>Exits DGAVCIndex when project has been saved.
+				<tr>
+					<td>Hide
+					<td id="tt">-h
+					<td>Starts and runs DGAVCIndex in the hidden state and<br>
+                                        exits when the project has been saved (forces -e option).
+			</table>
+	</ul></ul>
+	<br>
+
+	<br>
+	<h3>
+		<table><tr>
+			<td width="75%">Example
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+	<ul><ul>
+		<p>This example:</p>
+
+		<pre>DGAVCIndex -i d:\files\movie.avc -o d:\MyProject.dga -f 2 -e</pre>
+
+		<p>will save a project file, specifying:</p>
+
+		<code>
+                        Input File = d:\files\movie.avc<br>
+			Output File = d:\MyProject.dga<br>
+			Field Operation = Ignore Pulldown Flags<br>
+			Exit on end<br>
+		</code>
+
+		<p>This example does the same but uses a file name with embedded spaces:</p>
+
+		<pre>DGAVCIndex -i "d:\files\my wedding day.avc" -o "d:\my wedding day.dga" -f 2 -e</pre>
+
+                <p>Note that quoting is supported only for the -i and -o options.</p>
+	</ul></ul>
+<br>
+
+<a name="AppendixC"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">APPENDIX C: Auxiliary INI File Options
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+<br>
+	<ul id="justify">
+<p>Some aspects of DGAVCIndex's behavior can be modified via the INI file but not through the GUI, as described below. DGAVCIndex creates defaults for
+these settings, but you can modify these lines in the INI file
+as you wish.</p>
+<p>AVC_Extension=<i>string</i>: The extension used on demultiplexed AVC video files will be <i>string</i>. For example: AVC_Extension=264 will
+create a file such as "myfile.264".</p>
+	</ul><br>
+
+
+<a name="Credits"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Credits
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+<ul>
+	<br>
+	<i>Alphabetical Order</i><br><br>
+	<b>Donald Graft</b> ("neuron2"): author of DGAVCIndex and DGAVCDecode.<br>
+	<b>Joint Video Team</b>: author of JM Reference Software, used as model for NALU parsing.<br>
+	<b>Michael Niedermayer</b>: author of libavcodec's AVC decoder, used for decoding the AVC video.
+</ul>
+<br>
+<hr>
+<br>
+Copyright (C) 2007-2008 Donald A. Graft, All Rights Reserved.<br>
+</body>
+</html>

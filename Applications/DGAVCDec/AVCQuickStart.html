@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><title>DGAVCDec AVC/H.264 Decoder and Frame Server</title></head>
+<BODY bgcolor="adeaff">
+<hr><h1><center>DGAVCDec Quick Start Guide</center></h1><hr><p>
+This document is intended to help newcomers to DGAVCDec to
+quickly understand the process and become productive. It is
+intentionally short and to the point, and is not intended to
+be a complete users manual or tutorial.
+<p><hr><p>
+<h2>What is DGAVCDec?</h2>
+DGAVCDec is an AVC (H.264) decoder suite. It is used to decode AVC
+streams from such sources as HD-DVD EVOs, captured transport streams,
+*.264 files, etc. Note that currently only AVC elementary streams and transport streams are supported, so
+if you have a different container type, such as *.mp4, you
+will have to demultiplex the raw AVC stream from its container before processing it
+with DGAVCDec.
+<p><hr><p>
+<h2>What Do I Need to Use It?</h2>
+You need the DGAVCDec package and Avisynth. First get Avisynth
+2.5 (or better) and install it:
+<p>
+	<a href=http://sourceforge.net/project/showfiles.php?group_id=57023&package_id=72557>Avisynth 2.5</a>
+<p>
+You are going to use DGAVCIndex.exe and DGAVCDecode.dll from the DGAVCDec package, so extract them
+from the ZIP file and put them together in a directory.
+<p>
+Also get VirtualDub as we will use that to view the decoded video:
+<p>
+	<a href=http://www.virtualdub.org>VirtualDub Web Site</a>
+<p>
+We'll assume you have an AVC elementary file.
+<p><hr><p>
+<h2>OK. Now What?</h2>
+Fire up DGAVCIndex. Using File/Open, open your AVC (H.264) file. You should see the video.
+<p>
+Now select File/Save Project and enter a name for the index file (DGA file) that
+is going to be generated. Suppose your source file is called 'mystream.264'; you might
+choose the name 'mystream' to enter here, because DGAVCIndex will automatically
+append '.dga'. Good. Hit Save. The indexing process will start and you'll see
+the indicator moving along the time line to indicate the progress. Be patient if
+your video is large. When the process finishes, exit DGAVCIndex.
+<p><hr><p>
+<h2>What is This Index File and What Do I Do with It?</h2>
+DGAVCIndex created an index file called *.dga. It is read by DGAVCDecode, which actually
+decodes the AVC and delivers the video. The index file just contains information
+that tells DGAVCDecode where each frame is located and some information about each
+frame.
+<p>
+But you can't just execute DGAVCDecode directly! It has to be done through Avisynth.
+We'll make a script file called mystream.avs using a text editor. Later in this
+document I'll show you how to configure DGAVCIndex to make the script automatically,
+but for now, you need to know the old-fashioned way. So put this text into
+a new text file you make called 'mystream.avs':
+<p><tt>
+&nbsp;&nbsp;LoadPlugin("...\DGAVCDecode.dll")<br>
+&nbsp;&nbsp;AVCSource("mystream.dga")
+</tt><p>
+Replace the path '...' in the first line with the path to the location where
+you placed DGAVCDecode.dll.
+<p>
+Finally, use VirtualDub to open the 'mystream.avs' script file just as if it was an AVI file. That's it! You have
+your video and can navigate randomly on the VirtualDub timeline. Does life get
+much sweeter than this?
+<p><hr><p>
+<h2>Yeah, But How Do I Do That Automatic Script File Thing?</h2>
+Ahh, you have to pay extra for that! No, not really.
+<p>
+Let's suppose you have a script that you use all the time. Maybe like this:
+<p><tt>
+&nbsp;&nbsp;loadplugin("...\DGAVCDecode.dll")<br>
+&nbsp;&nbsp;loadplugin("...\Decomb.dll")<br>
+&nbsp;&nbsp;avcsource("mystream.dga")<br>
+&nbsp;&nbsp;fielddeinterlace()
+</tt><p>
+Copy this to a file and call it
+'template.avs'. Then edit it to replace the DGA file name with __vid__ (that's <i>two</i> underscores before "vid" and two after).
+template.avs should then look like this:
+<p><tt>
+&nbsp;&nbsp;loadplugin("...\DGAVCDecode.dll")<br>
+&nbsp;&nbsp;loadplugin("...\Decomb.dll")<br>
+&nbsp;&nbsp;avcsource("__vid__")<br>
+&nbsp;&nbsp;fielddeinterlace()
+</tt><p>
+You see, DGAVCIndex is going to use this as a template and insert the right
+file name whenever it sees __vid__. Slick, eh?
+<p>
+OK, all you have to do now is fire up DGAVCIndex, select your template file with the
+Options/AVS Template menu item, and then do a Save Project.
+If the *.avs file does not already exist, DGAVCIndex will make one for
+you based on the template! Of course, the template has to be created only once,
+while you'll get an automatically generated AVS script every time you save
+a DGAVCIndex project.
+<p><hr><p>
+<h2>Cool. One Last Question...</h2>
+Shoot!
+<p><hr><p>
+<h2>Why the Two-Step Tango? Why Can't I Do Everything Right in DGAVCIndex?</h2>
+Good question! We want to make our video available to any application that
+we might find useful. Surely we can't put every possible function into DGAVCIndex.
+So instead we create a way to 'serve' the video into all these other applications.
+Avisynth is an AVI file server. It creates a 'fake AVI' and tricks applications
+into thinking they have a real AVI when they open the *.avs file.
+<p>
+If you just want to make an AVI out of your video, it's easy. Open the AVS in VirtualDub,
+set your compression, and do Save AVI.
+<p><hr><p>
+<small>Copyright (C) 2007-2008 Donald A. Graft, All Rights Reserved</small>

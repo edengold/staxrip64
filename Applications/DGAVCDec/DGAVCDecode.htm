@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+	<title>DGAVCDecode - User Manual</title>
+	<meta HTTP-EQUIV="Content-Type" LANG="en-us" CONTENT="text/html; charset=iso-8859-1">
+
+	<style type="text/css">
+		body	      { font-family: verdana, arial, helvetica, sans-serif;
+				font-size: 12px;
+				color: #000000;
+				background-color: #B6C0CA;
+				text-align: left;
+				line-height: 150%;
+				width: 98.5%;
+				padding: 0px;
+				margin: 8px 0px 8px 8px; }
+
+		ul	      { padding: 0px;
+				margin: 0px 62px 0px 60px; }
+
+		ol	      { padding: 0px;
+				margin: 0px 62px 0px 60px; }
+
+		table	      { width: 99%; }
+
+		h1	      { font-size: 26px;
+				background-color: #90A0C0;
+				text-align: center;
+				line-height: 150%;
+				margin: 12px 0px 12px 0px; }
+
+		h2	      { font-size: 22px;
+				background-color: #90A0C0;
+				line-height: 150%;
+				padding-left: 8px;
+				margin: 12px 0px 12px 0px;
+				border-style: solid;
+				border-color: #003366;
+				border-width: 2px; }
+
+		h3	      { font-size: 18px;
+				line-height: 150%;
+				padding-left: 8px;
+				margin: 12px 0px 12px 50px;
+				border-style: solid;
+				border-color: #003366;
+				border-width: 1px; }
+
+		pre	      { font-family: "Courier New", Courier, monospace;
+				font-size: 15px;
+				background-color: #D0D0C0;
+				padding: 12px;
+				margin: 10px 0px 10px 0px;
+				border-style: solid;
+				border-color: #908030;
+				border-width: 1px; }
+
+		code	      { font-family: "Courier New", Courier, monospace;
+				font-size: 15px;
+				color: #002266;
+				letter-spacing: 1px; }
+
+		a	      { font-size: 12px;
+				color: #404A58;
+				text-decoration: none; }
+
+		a:visited     { color: #0000ff; }
+
+		a:hover	      { background-color: #EEE; }
+
+		#right	      { text-align: right; }
+
+		#justify      { text-align: justify; }
+
+		#quote	      { font-style: italic;
+				margin: 0px 50px 0px 50px; }
+
+		#precode      { color: #002266;
+				background-color: #B6C0CA;
+				padding: 0px 0px 0px 12px;
+				margin: 0px;
+				border-style: none; }
+
+		#section      { color: #002266;
+				width: 300px;
+				line-height: 75%;
+				text-align: right; }
+	</style>
+</head>
+
+<body>
+<a name="Top"></a>
+
+<br>
+<h1><hr>DGAVCDecode 1.0.9<hr></h1>
+
+<ul>
+	<br>
+	<br>
+	<a href="#WhatIsDGAVCDecode">What is DGAVCDecode?</a><br>
+	<br>
+
+	<a href="#Syntax">Filter Syntax</a><br>
+	&nbsp&nbsp&nbsp<a href="#AVCSource">AVCSource()</a><br>
+	<br>
+
+	<a href="#Examples">Usage Examples</a><br>
+	&nbsp&nbsp&nbsp<a href="#LoadPlugin_Example">LoadPlugin() Example</a><br>
+	&nbsp&nbsp&nbsp<a href="#AVCSource_Examples">AVCSource() Examples</a><br>
+	<br>
+	<a href="#Credits">Credits</a><br>
+	<br>
+</ul>
+
+<a name="WhatIsDGAVCDecode"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">What is DGAVCDecode?
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+<ul id="justify">
+	<p>DGAVCDecode, part of the DGAVCDec package, is an AVC (H.264) decoder plug-in designed for <a href="http://www.avisynth.org/"
+	target="blank">AviSynth</a> v2.5 or higher. It's able to decode any AVC stream readable by DGAVCIndex.</p>
+	<p>You can get the latest binaries of DGAVCDec at <a href="http://neuron2.net/dgavcdec/dgavcdec.html"
+	target="blank">http://neuron2.net/dgavcdec/dgavcdec.html</a></p>
+</ul>
+
+<a name="Syntax"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Filter Syntax
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+	<a name="AVCSource"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">AVCSource()
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<code>
+			AVCSource(str "dga", bool "deblock")
+		</code>
+		<br><br>
+
+		<b>dga</b>: "[PATH\]project.dga"<br>
+		<ul>
+			<i>DGAVCIndex Project File.<br>
+			Required parameter!<br>
+			<u>Note 1:</u> PATH can be ignored if "project.dga" is in the same directory as your
+			<a href="http://www.avisynth.org/" target="blank">AviSynth</a> (*.avs)	script.</i><br>
+		</ul>
+		<br>
+
+		<b>deblock</b>: true/false  (default: true)<br>
+		<ul>
+			<i>In-Loop Deblocking Filter<br>
+			Enables or disables in-loop deblocking.</i><br>
+		</ul>
+		<br>
+
+	</ul></ul>
+
+	</ul></ul>
+
+<a name="Examples"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Usage Examples
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+	<a name="LoadPlugin_Example"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">AviSynth LoadPlugin() Example
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		AviSynth's <i><a href="http://www.avisynth.org/AviSynthPlugins" target="blank">LoadPlugin()</a></i> must be
+		called before any DGAVCDecode functions can be used.<br>
+		To accomplish this, add the following line to the beginning of your AviSynth (*.avs) script:<br>
+		<pre>LoadPlugin("[PATH\]DGAVCDecode.dll")</pre>
+		<u>Note:</u> PATH can be ignored if DGAVCDecode.dll is in the default <a href="http://www.avisynth.org/" target="blank">AviSynth</a>
+		plug-in directory, otherwise PATH must be specified.<br>
+		<br>
+		<br>
+	</ul></ul>
+
+	<a name="AVCSource_Examples"></a><br>
+	<h3>
+		<table><tr>
+			<td width="75%">AVCSource() Examples
+			<td id="right"><a href="#Top">Table of Contents</a></td>
+		</table>
+	</h3>
+
+	<ul><ul>
+		<a href="#AVCSource">AVCSource()</a> should be used only with AVC video sources.<br>
+		<br>
+
+		To decode:<br>
+		<pre>AVCSource("[PATH\]project.dga")</pre>
+		<u>Note:</u> PATH can be ignored if "project.dga" is in the same directory as your
+		<a href="http://www.avisynth.org/" target="blank">AviSynth</a> (*.avs) script.<br>
+		<br>
+
+		No deblocking:<br>
+		<pre>AVCSource("project.dga", deblock=false)</pre>
+		<br>
+	</ul></ul>
+
+
+<a name="Credits"></a><br>
+<h2>
+	<table><tr>
+		<td width="75%">Credits
+		<td id="right"><a href="#Top">Table of Contents</a></td>
+	</table>
+</h2>
+
+<ul>
+	<br>
+	<i>Alphabetical Order</i><br><br>
+	<b>Donald Graft</b> ("neuron2"): author of DGAVCIndex and DGAVCDecode.<br>
+	<b>Joint Video Team</b>: Author of JM reference software, from which NALU parsing was modeled.
+	<b>Michael Niedermayer</b>: Author of libavcodec's H.264 decoder.
+</ul>
+<br>
+
+<hr>
+<br>
+Copyright (C) 2007-2008 Donald A. Graft, All Rights Reserved.<br>
+</body>
+</html>

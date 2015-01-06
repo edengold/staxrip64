@@ -1,0 +1,220 @@
+ Note: 
+   - the archive contains all necessary files
+
+
+ Project X 0.91.0
+ 2011/03/31
+
+  basic release: Project X 0.91.0
+
+   collects all patches from 0.90.4 series
+    b01 ... b32  since 2006/03/30 (5 years)
+
+
+   hint:
+    H.264 (in SD & HD) processing is still missing
+
+
+
+
+
+
+
+
+the changes in brief:
+
+0.90.4.00b01..b06:
+--key ändern loslessmpaconversion -> losslessmpaconversion
+--danish translation update jazzydane
+--wait for return bei extern prozess..
+--invalid startcode packet# (pos?) melden
+--os-2  start-exception in cl umleiten
+--B-c(losed) nur vorwärtsreferenzierte B-Frames ? behandeln
+--b-frames drop?
+--vorschaupuffer entspr. bitrate autom. wählen
+--pes0 - pesheader genauer überspringen + preview angepasst
+--rds decode abbruch bei falschem index
+--prozessfenster coll#/von zahl
+--umleitung cli ( > datei ) geht nicht
+--checkwriteaccess fehler bei addon?
+--fehlermeldung + rücksetzung, wenn unterverzeichnis nicht erstellt werden kann
+--coll properties gui
+--0x3c data stream ignoriern (TS)
+--rds decode defekt
+--ftp unterordner optional listen
+--dvbsubs except - pagecomposition
+--vdr verzeichniserstellung extra
+--reserved outputfile (in = out) auch in ini gespeichert
+--coll properties gui, 
+--fix dvb subpicture - falsche farben bei verschiedenen farbtabellen pro region
+--vobsub + idx erzeugen aus teletext + sup input
+
+0.90.4.00b07:
+--vid von jepssen(koscom) anpassung
+--fix mpg2 layer3 demux error
+--fehlertext, wenn html - url fehlt
+--ausgabezeit bei RDS RT etc
+--vorschau optionen hinter bild verstecken (wie memorymoni)
+--build.sh erweitert - zuspiel
+--build.xml ant - zuspiel
+--blank buttons - zuspiel
+--zusatzknopf create koll + add all marked files
+--fix: slider overflow, preview
+--Frametypänderung fixieren - split MPA Prob
+--split mpa, 5.option zu doppel-mono
+--vorschaubild helligkeit anpassen
+--bitrate graph leicht geändert
+--cutpanel/slider verändert
+--patchpanel mit DAR - fix update
+--preview zoom modes
+--schnittpunkte verschiebbar
+--ts-scan erhöht
+
+0.90.4.00b08:
+--fix split mpa, 6.option split dual/copy mono zu doppel-mono/jst, stereo bleibt
+--process-actions jetzt checkboxen
+
+0.90.4.00b09:
+--fix ac3 parse size index
+--zoom area geändert
+--mpg2 lay2 audio fix, erkennung
+--mpa crc test beschleunigt
+--pic area background, cut view index klickbar
+--DnD laden von FTP Links/Datei möglich
+--option spez.2: ohne/mit overhead lesen (vormals immer aktiv)
+
+0.90.4.00b10..b11:
+--mpa demux ca. halbe zeit
+--sonderzeichen umtausch zB. direktzugriff
+
+0.90.4.00b12:
+--idct temporär abschaltbar, falls crashanfällig
+--mpa crc berechnung optimierg
+--only boxed subtitle export option, fehlerminimierung bei problematischen teletexten
+--teletext-class nicht mehr static
+
+0.90.4.00b13:
+--ttx 2 sup , text horiz. zentrieren
+--pre-scan anzeige von lpcm
+--pre-scan ts miserkennung
+--(neue) koscom lese option
+
+0.90.4.00b14:
+----(neue) koscom lese option, restanpassung?
+--focus nach prozessstart von starttaste weg
+--zoombereich mit shift + mouse verschiebbar
+--cutimage mix mode zum schnittpunktabgleich
+--fix: abbruch bei bestimmten fehlerhaften Gops
+--speichersparen beim pts lesen
+
+0.90.4.00b15:
+--medion prepare option
+--geänd. koscom lese option
+--filtersteuerungspanel teil1
+
+0.90.4.00b16:
+--filtersteuerungspanel teil2 
+--file properties gui, einstellungen je file
+--dynam. Rescan mit vorschau in dateieigenschaften
+--fix mpeg1 out of memory - u.a.
+
+0.90.4.00b17:
+--matrix scan, vorschau erweitert (li. annähern, re. übernehmen)
+--remux wird bei sekund. Dateien abgelehnt, info sekund. Datei in tabelle bei # "-"
+
+0.90.4.00b18:
+--filter info
+--matrix changed to 4x4
+
+0.90.4.00b19:
+--fix dvb-sub crash
+--opt. ac3 bitraten angleichung
+
+0.90.4.00b20:
+--post process call changed + fixed (toTS didn't work); temp file access
+--sync interruption issue, more tests needed
+
+0.90.4.00b21:
+--letzter dvb-subtitle fehlte u.U.
+
+0.90.4.00b22:
+--test-!!mac os url problem umlaute,leerzeichen, sonderzeichen utf 8 encoding
+--urldecoder aus 1.4.2 in 1.2.2 integrieren (decoder.getfile(), "UTF-8") wg os x tiger - mail
+--falls prozess nicht stoppbar -> hard break funktion im menü
+--"end-beep" fehler stoppt prozess nicht mehr
+--anpassung vdr 1.5.10ff, dvb-subs spezieller container (hierbei zzt nur 1x sub in vdr)
+
+0.90.4.00b23:
+--anpassung vdr 1.5.10ff, multiple dvb-subs spezieller container
+--crash (unbedeutend) in mini-schnittbild-abgleichfenster ohne collection 
+--fix: endless loop bei unbekanntem subpicture kommando
+
+0.90.4.00b24:
+--videoptsfile zur nachnutzung als primärer bezug
+--preview v. gops ohne gopheader (nur sequ header)
+--192byte ts packet verarbeitung
+--mpa umbenennung korrigiert
+--m2s projectfile umbenennung korrigiert
+
+0.90.4.00b25:
+--fix: ac3 384 wird nicht als Stille genommen
+--integer idct (by dukios), auch ohne dll etwas schneller
+--gui -infofelder umgesetzt, hauptfenster verkleinert
+--ac3 a/v sync problem
+
+0.90.4.00b26:
+--1:1 direct cut aufgeteilt, 'echte' kopie von dateisegmenten, zzt nur 1 datei
+--ts payload erkennung erweitert
+
+0.90.4.00b27:
+--arion avr export
+--handled exception HD dvb subtitle (?)
+--thumbnails
+--fix: recognition of multi area dvd subpics
+--preview resizable
+!-ac3 a/v abbruch problem noch offen
+
+0.90.4.00b28:
+--enhanced Sup-Viewer
+--new CLI parameter: [-set <switch/entry as used in inifile>]
+--to TS: duplicates event info from source (TF5x00) to sink (TF5x00)
+--optional: preview slider aligned to preview
+--some fixes in teletext decoding 
+--save confirmation -save cuts/save chapters
+--ttx - sub insertion - vers. 0.1
+--sup multicolor of dvb-subtitles 
+
+0.90.4.00b29:
+--ttx - sub insertion - vers. 0.2
+--MPAD überarbeiten, decode: arrays.fill statt new init ca. 20% schneller
+--dragndrop - eyetv update1+2, thx2cookie
+--sprachkennung aus PMT an dateinamen anhängen (-settings-extern)
+--preview -outofmemory anzeige
+
+0.90.4.00b30:
+--ac3 bsid patch
+--dvb st pts switch separated
+--special panel: optional reduced A/V sync check
+
+0.90.4.00b31:
+--ac3,mpa a/v abbruch problem, patch by HHM
+--teletext zeichensteuerung, patch by HHM
+--fix, mehrere -set keys von cli lesen
+--fix, falsches pts file bei video-es
+--pulldown patch by vq (separate field encoding not yet supported)
+--fix: div. scanerkennung
+--fix: preview problems
+--patch: comag file segments read
+--ttx: multiple pages per field
+--fix audio sync rechenfehler dateipos.
+
+0.90.4.00b32:
+--pulldown patch #2 by vq (separate field encoding not yet supported)
+--1st try HD sub decoding/conversion
+--fix: dvb sub to sup , missing pixel
+--fix: supviewer
+--fix: lang.name appending
+--fix: teletext identifier (freesat)
+--fix: dvb-sub decoding, RTL decoding table
+--fix: TS192 file segment combine
+...

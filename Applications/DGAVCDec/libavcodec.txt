@@ -1,0 +1,7 @@
+The libavcodec.dll shipped with DGAVCDec is a GPL binary. I built it from the
+source code available here:
+
+http://sourceforge.net/project/downloading.php?groupname=ffdshow-tryout
+
+I have made a small modification to return a different version string to
+manage compatibility issues. This modification is available on request.

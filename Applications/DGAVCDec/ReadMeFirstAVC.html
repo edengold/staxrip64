@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><title>DGAVCDec AVC/H.264 Decoder and Frame Server</title></head>
+<BODY bgcolor="adeaff">
+<center><h2>DGAVCDec Release Notes</h2>
+
+***Version 1.0.9***</center>
+<p><hr><p>
+Version 1.0.9 changes:
+<p>
+1. Fix a bug in backward GOP stepping.
+<p>
+2. Fixed a problem with Load Project.
+<p>
+3. Added option "Display HD Full Sized".
+<p>
+4. Fixed a problem in M2TS file parsing.
+<p><hr><p>
+DGAVCIndex produces an index file named *.dga. The Avisynth script
+looks like this:
+<p>
+<tt>loadplugin("DGAVCDecode.dll")<br>
+AVCSource("file.dga")
+</tt>
+<p>
+You can also disable deblocking:
+<p>
+<tt>
+AVCSource("file.dga",deblock=false)
+</tt>
+<p>
+Note that the included decoder DLL (libavcodec.dll) must be
+in the same directory as the DGAVCIndex executable.
+<p>
+<b>WARNING</b>: You have to update the DLL mentioned above for each new release! DO NOT ASSUME
+THAT IT IS NOT CHANGED EVEN IF HAS THE SAME FILENAME.
+<p><hr><p>
+<h3>Current Limitations</h3
+<p>
+1. Only AVC/H.264 elementary (raw) and transport streams can be opened (no MKV or MP4 files yet).
+Only one file can be opened at a time.
+<p>
+2. Fast random access requires frequent IDR frames, I frames, or recovery point SEIs.
+<p>
+3. DGAVCDec uses libavcodec.dll, so if that library cannot handle a stream properly, then
+DGAVCDec also will not handle it properly. The popular VLC player also uses the same code, so
+you can test your stream there to see if any problem encountered is due to libavcodec.dll or to
+DGAVCDec. The reality is that, as of today, libavcodec.dll has problems with several types
+of streams, and we will have to wait for it to become more mature.
+<p>
+4. Data partitioning is not yet supported.
+<p><hr><p>
+[Donald Graft, September 2008]
